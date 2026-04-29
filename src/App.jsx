@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
 import SystemImpact from "./sections/SystemImpact";
@@ -32,6 +33,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <SpeedInsights />
     </div>
   );
 }
