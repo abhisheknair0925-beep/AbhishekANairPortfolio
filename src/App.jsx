@@ -10,6 +10,7 @@ import Optimization from "./sections/Optimization";
 import SystemArchitecture from "./sections/SystemArchitecture";
 import Leadership from "./sections/Leadership";
 import Projects from "./sections/Projects";
+import DynamicProjects from "./sections/DynamicProjects";
 import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
@@ -29,6 +30,7 @@ function App() {
         <SystemArchitecture />
         <Leadership />
         <Projects />
+        <DynamicProjects />
         <Achievements />
         <Contact />
       </main>

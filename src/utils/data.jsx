@@ -1,4 +1,4 @@
-import { Code2, Database, LayoutTemplate, Smartphone, Terminal, Server, Activity, ArrowUpRight, CheckCircle2, ShieldCheck, Zap } from "lucide-react";
+import { Code2, Database, LayoutTemplate, Terminal, Server, Activity, ShieldCheck, Zap } from "lucide-react";
 
 export const PORTFOLIO_DATA = {
   hero: {
