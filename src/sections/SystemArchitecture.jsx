@@ -111,31 +111,46 @@ const SystemArchitecture = () => {
             </svg>
 
             {/* Nodes */}
-            <div className="absolute top-1/2 left-[100px] -translate-y-1/2 w-24 h-24 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl flex flex-col items-center justify-center z-10">
+            <motion.div 
+              whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(99,102,241,0.5)" }}
+              className="absolute top-1/2 left-[100px] -translate-y-1/2 w-24 h-24 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl flex flex-col items-center justify-center z-10 cursor-pointer transition-colors hover:border-indigo-500/50"
+            >
               <span className="text-2xl mb-1">📱</span>
               <span className="text-xs font-bold text-slate-300">Client / POS</span>
-            </div>
+            </motion.div>
 
-            <div className="absolute top-1/2 left-[350px] -translate-y-1/2 w-28 h-28 bg-indigo-500/10 border border-indigo-500/50 rounded-2xl shadow-[0_0_30px_rgba(99,102,241,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md">
+            <motion.div 
+              whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(99,102,241,0.6)" }}
+              className="absolute top-1/2 left-[350px] -translate-y-1/2 w-28 h-28 bg-indigo-500/10 border border-indigo-500/50 rounded-2xl shadow-[0_0_30px_rgba(99,102,241,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md cursor-pointer transition-colors hover:bg-indigo-500/20"
+            >
               <span className="text-2xl mb-1">⚡</span>
               <span className="text-xs font-bold text-indigo-300">API Gateway</span>
               <span className="text-[10px] text-slate-400 mt-1">.NET Core</span>
-            </div>
+            </motion.div>
 
-            <div className="absolute top-[80px] left-[600px] w-24 h-24 bg-purple-500/10 border border-purple-500/50 rounded-2xl shadow-[0_0_30px_rgba(139,92,246,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md">
+            <motion.div 
+              whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(139,92,246,0.6)" }}
+              className="absolute top-[80px] left-[600px] w-24 h-24 bg-purple-500/10 border border-purple-500/50 rounded-2xl shadow-[0_0_30px_rgba(139,92,246,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md cursor-pointer transition-colors hover:bg-purple-500/20"
+            >
               <span className="text-2xl mb-1">⚙️</span>
               <span className="text-xs font-bold text-purple-300">ETL Worker</span>
-            </div>
+            </motion.div>
 
-            <div className="absolute top-[240px] left-[600px] w-24 h-24 bg-blue-500/10 border border-blue-500/50 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md">
+            <motion.div 
+              whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(59,130,246,0.6)" }}
+              className="absolute top-[240px] left-[600px] w-24 h-24 bg-blue-500/10 border border-blue-500/50 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)] flex flex-col items-center justify-center z-10 backdrop-blur-md cursor-pointer transition-colors hover:bg-blue-500/20"
+            >
               <span className="text-2xl mb-1">🗄️</span>
               <span className="text-xs font-bold text-blue-300">SQL Server</span>
-            </div>
+            </motion.div>
 
-            <div className="absolute top-1/2 left-[850px] -translate-y-1/2 w-24 h-24 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl flex flex-col items-center justify-center z-10">
+            <motion.div 
+              whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(99,102,241,0.5)" }}
+              className="absolute top-1/2 left-[850px] -translate-y-1/2 w-24 h-24 bg-slate-900 border border-slate-700 rounded-2xl shadow-xl flex flex-col items-center justify-center z-10 cursor-pointer transition-colors hover:border-indigo-500/50"
+            >
               <span className="text-2xl mb-1">📊</span>
               <span className="text-xs font-bold text-slate-300">Dashboard</span>
-            </div>
+            </motion.div>
 
           </div>
         </div>

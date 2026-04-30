@@ -18,6 +18,9 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-[#0F172A] text-slate-100 font-sans antialiased overflow-x-hidden;
   }

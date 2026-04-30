@@ -15,9 +15,14 @@ import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Footer from "./components/Footer";
 
+import CursorGlow from "./components/CursorGlow";
+import ScrollProgress from "./components/ScrollProgress";
+
 function App() {
   return (
     <div className="bg-[#0F172A] min-h-screen text-slate-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+      <ScrollProgress />
+      <CursorGlow />
       <Navbar />
       <main>
         <Hero />

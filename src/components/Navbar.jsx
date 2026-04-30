@@ -23,7 +23,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-slate-900/80 backdrop-blur-md border-b border-slate-800 py-4 shadow-lg" : "bg-transparent py-6"
       }`}
@@ -84,7 +87,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 

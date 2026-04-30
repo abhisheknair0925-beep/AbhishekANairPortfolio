@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowRight } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/Icons";
 import { PORTFOLIO_DATA } from "../utils/data";
+import { staggerContainer, fadeInUp, buttonGlow } from "../utils/animations";
 
 const Hero = () => {
   const { name, role, tagline } = PORTFOLIO_DATA.hero;
@@ -9,60 +10,87 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden bg-[#0F172A] bg-grid-pattern">
       {/* Animated glowing blobs */}
-      <div className="glow-blob bg-indigo-600 w-[500px] h-[500px] top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="glow-blob bg-purple-600 w-[600px] h-[600px] bottom-0 right-0 translate-x-1/3 translate-y-1/3" style={{ animationDelay: "2s" }}></div>
+      <motion.div 
+        animate={{ 
+          x: [0, 30, -20, 0], 
+          y: [0, -40, 20, 0] 
+        }}
+        transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+        className="glow-blob bg-indigo-600 w-[500px] h-[500px] top-0 left-0 -translate-x-1/2 -translate-y-1/2"
+      />
+      <motion.div 
+        animate={{ 
+          x: [0, -40, 30, 0], 
+          y: [0, 30, -20, 0] 
+        }}
+        transition={{ repeat: Infinity, duration: 18, ease: "linear", delay: 2 }}
+        className="glow-blob bg-purple-600 w-[600px] h-[600px] bottom-0 right-0 translate-x-1/3 translate-y-1/3"
+      />
 
       <div className="container mx-auto px-6 md:px-12 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 z-10 relative">
         
         {/* Text Content */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
           className="flex-1 text-center lg:text-left mt-12 lg:mt-0"
         >
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
+            variants={fadeInUp}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-indigo-500/30 text-indigo-300 text-sm font-semibold mb-8 tracking-wide uppercase"
           >
             <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
             {role}
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 tracking-tighter leading-[1.1]">
+          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl lg:text-8xl font-heading font-extrabold mb-6 tracking-tighter leading-[1.1]">
             Engineering <br />
             <span className="text-gradient">Resilience.</span>
-          </h1>
+          </motion.h1>
           
-          <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
             I'm <strong className="text-slate-200">{name}</strong>. {tagline}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
-            <a href="#projects" className="relative group w-full sm:w-auto">
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5">
+            <motion.a 
+              href="#projects" 
+              className="relative group w-full sm:w-auto block"
+              variants={buttonGlow}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+            >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative px-8 py-4 bg-slate-900 rounded-full flex items-center justify-center gap-2 font-semibold text-slate-100 transition-all hover:bg-slate-800">
                 Explore Systems
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </a>
+            </motion.a>
             
-            <a href="/resume.pdf" download className="w-full sm:w-auto px-8 py-4 glass-card hover:bg-white/5 rounded-full font-semibold transition-all flex items-center justify-center gap-2 text-slate-300 hover:text-white">
+            <motion.a 
+              href="/resume.pdf" 
+              download 
+              variants={buttonGlow}
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              className="w-full sm:w-auto px-8 py-4 glass-card hover:bg-white/5 rounded-full font-semibold transition-all flex items-center justify-center gap-2 text-slate-300 hover:text-white"
+            >
               <Download className="w-4 h-4 text-indigo-400" />
               Download CV
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
-          <div className="flex items-center justify-center lg:justify-start gap-8 mt-14 text-slate-500">
+          <motion.div variants={fadeInUp} className="flex items-center justify-center lg:justify-start gap-8 mt-14 text-slate-500">
             <a href="https://github.com/abhisheknair0925-beep" target="_blank" rel="noreferrer" className="hover:text-indigo-400 hover:scale-110 transition-all">
               <GithubIcon className="w-7 h-7" />
             </a>
             <a href="#" className="hover:text-blue-500 hover:scale-110 transition-all">
               <LinkedinIcon className="w-7 h-7" />
             </a>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Premium Profile Image Frame */}

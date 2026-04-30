@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { BookOpen, ExternalLink, Star, GitFork, Activity } from "lucide-react";
 import { useDynamicProjects } from "../hooks/useDynamicProjects";
+import { hoverLift, staggerContainer, fadeInUp } from "../utils/animations";
 
 const DynamicProjects = () => {
   const { projects, loading, error } = useDynamicProjects();
@@ -39,7 +40,13 @@ const DynamicProjects = () => {
             Failed to load projects: {error}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {loading ? (
               // SKELETON LOADER
               [1, 2, 3, 4, 5].map((i) => (
@@ -67,10 +74,8 @@ const DynamicProjects = () => {
                 return (
                   <motion.div 
                     key={repo.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    variants={hoverLift}
+                    whileHover="hover"
                     className={`glass-card p-8 group flex flex-col h-full border-t-2 border-t-transparent hover:border-t-indigo-500 transition-all duration-300 relative overflow-hidden ${
                       isFeatured ? 'md:col-span-2 lg:col-span-2 shadow-[0_0_30px_rgba(99,102,241,0.1)] border-indigo-500/20' : ''
                     }`}
@@ -112,7 +117,7 @@ const DynamicProjects = () => {
                 );
               })
             )}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

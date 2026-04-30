@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { PORTFOLIO_DATA } from "../utils/data";
+import { hoverLift, fadeInUp } from "../utils/animations";
 
 const SystemImpact = () => {
   const [ref, inView] = useInView({
@@ -41,11 +42,13 @@ const SystemImpact = () => {
           {PORTFOLIO_DATA.systemImpact.map((metric, index) => (
             <motion.div
               key={index}
+              variants={hoverLift}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              whileHover="hover"
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="glass-card p-6 border-t-4 border-t-indigo-500/50 hover:border-t-indigo-400 group"
+              className="glass-card p-6 border-t-4 border-t-indigo-500/50 hover:border-t-indigo-400 group cursor-default"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center border border-white/5 group-hover:bg-slate-700 transition-colors">

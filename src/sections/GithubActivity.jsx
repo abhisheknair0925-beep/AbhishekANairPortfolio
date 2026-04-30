@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useGithubData } from "../hooks/useGithubData";
 import { Users, BookOpen, Star, GitBranch, Code } from "lucide-react";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { hoverLift, fadeInUp } from "../utils/animations";
 
 const GithubActivity = () => {
   const { profile, repos, loading, error } = useGithubData();
@@ -132,11 +133,13 @@ const GithubActivity = () => {
               ].map((stat, i) => (
                 <motion.div 
                   key={i}
+                  variants={hoverLift}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover="hover"
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="glass-card p-4 flex flex-col justify-between h-32"
+                  className="glass-card p-4 flex flex-col justify-between h-32 cursor-default"
                 >
                   {loading && !profile ? (
                     <div className="animate-pulse w-full h-full bg-slate-800/50 rounded"></div>

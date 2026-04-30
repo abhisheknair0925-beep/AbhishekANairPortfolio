@@ -3,6 +3,7 @@ import { PORTFOLIO_DATA } from "../utils/data";
 import { ExternalLink, Star, GitFork, BookOpen } from "lucide-react";
 import { GithubIcon } from "../components/Icons";
 import { useGithubData } from "../hooks/useGithubData";
+import { staggerContainer, hoverLift, fadeInUp } from "../utils/animations";
 
 const Projects = () => {
   const { repos, loading } = useGithubData();
@@ -123,7 +124,13 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
           {loading ? (
             // Skeleton Loader
             [1, 2, 3, 4].map((i) => (
@@ -141,10 +148,9 @@ const Projects = () => {
             topRepos.map((repo, index) => (
               <motion.div 
                 key={repo.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                variants={hoverLift}
+                whileHover="hover"
+                initial="rest"
                 className="glass-card p-8 border-t-2 border-t-indigo-500/30 hover:border-t-indigo-500 group flex flex-col h-full"
               >
                 <div className="flex justify-between items-start mb-4">
@@ -178,7 +184,7 @@ const Projects = () => {
               </motion.div>
             ))
           )}
-        </div>
+        </motion.div>
 
       </div>
     </section>
