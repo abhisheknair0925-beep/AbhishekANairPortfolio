@@ -206,38 +206,40 @@ const GithubActivity = () => {
                 </div>
               </div>
 
-              <div className="flex-1 w-full h-[250px] relative">
+              <div className="flex-1 w-full h-[300px] min-h-[300px] relative">
                 {loading ? (
                   <div className="w-full h-full flex items-center justify-center animate-pulse">
                      <div className="w-48 h-48 rounded-full border-[20px] border-slate-800"></div>
                   </div>
                 ) : (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={chartData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={90}
-                        paddingAngle={5}
-                        dataKey="value"
-                        stroke="none"
-                        animationBegin={200}
-                        animationDuration={1500}
-                        animationEasing="ease-out"
-                      >
-                        {chartData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
-                        ))}
-                      </Pie>
-                      <Tooltip 
-                        contentStyle={{ backgroundColor: '#1E293B', borderColor: '#334155', borderRadius: '8px', color: '#F8FAFC' }}
-                        itemStyle={{ color: '#F8FAFC' }}
-                        formatter={(value, name, props) => [`${props.payload.percentage}% (${value} repos)`, name]}
-                      />
-                    </PieChart>
-                  </ResponsiveContainer>
+                  <div className="w-full h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie
+                          data={chartData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={60}
+                          outerRadius={90}
+                          paddingAngle={5}
+                          dataKey="value"
+                          stroke="none"
+                          animationBegin={200}
+                          animationDuration={1500}
+                          animationEasing="ease-out"
+                        >
+                          {chartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                          ))}
+                        </Pie>
+                        <Tooltip 
+                          contentStyle={{ backgroundColor: '#1E293B', borderColor: '#334155', borderRadius: '8px', color: '#F8FAFC' }}
+                          itemStyle={{ color: '#F8FAFC' }}
+                          formatter={(value, name, props) => [`${props.payload.percentage}% (${value} repos)`, name]}
+                        />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
                 )}
               </div>
             </motion.div>

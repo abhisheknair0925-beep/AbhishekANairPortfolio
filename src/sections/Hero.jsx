@@ -86,20 +86,7 @@ const Hero = () => {
             <div className="absolute inset-2 rounded-2xl bg-gradient-to-t from-[#0F172A] via-transparent to-transparent opacity-80 mix-blend-multiply pointer-events-none"></div>
           </div>
           
-          {/* Floating Badge */}
-          <motion.div 
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl z-20 flex items-center gap-4 border border-indigo-500/30"
-          >
-            <div className="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
-              <span className="text-xl">🚀</span>
-            </div>
-            <div>
-              <div className="text-xs text-slate-400 font-semibold uppercase tracking-wider">Status</div>
-              <div className="text-sm text-slate-100 font-bold">Deploying to Prod</div>
-            </div>
-          </motion.div>
+
         </motion.div>
 
       </div>
