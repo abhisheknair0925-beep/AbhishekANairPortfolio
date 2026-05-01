@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -9,12 +10,39 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Integrate EmailJS here later
-    setTimeout(() => {
-      alert("Message sent successfully! (This is a mock implementation)");
+    
+    // Ensure you have these environment variables set in your .env file
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      alert("Email service is not configured yet. Please check back later!");
+      setIsSubmitting(false);
+      return;
+    }
+
+    emailjs.send(
+      serviceId,
+      templateId,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "abhisheknair0925@gmail.com" // Passed to template for routing
+      },
+      publicKey
+    )
+    .then((result) => {
+      alert("Message sent successfully! I will get back to you soon.");
       setFormData({ name: "", email: "", message: "" });
       setIsSubmitting(false);
-    }, 1500);
+    })
+    .catch((error) => {
+      console.error("Email sending failed:", error);
+      alert("Oops! Something went wrong. Please try again later.");
+      setIsSubmitting(false);
+    });
   };
 
   return (

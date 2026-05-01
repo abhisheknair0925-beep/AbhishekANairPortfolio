@@ -111,7 +111,6 @@ export const PORTFOLIO_DATA = {
       description: "Engineered automated backend revenue processing engine for a multi-store retail chain. Integrated third-party REST APIs for real-time sales synchronization with robust validation pipelines.",
       tech: ["C#", ".NET Core", "SQL Server", "REST APIs"],
       image: "/architecture.png",
-      github: "https://github.com/abhisheknair0925-beep",
       live: "#",
     },
     {
@@ -119,28 +118,33 @@ export const PORTFOLIO_DATA = {
       description: "Built via vibe coding — AI-assisted development used to rapidly ship a cross-platform app with analytics dashboard, offline-first architecture, and cloud sync.",
       tech: ["Flutter", "Dart", "SQLite", "Firebase"],
       image: "/expense-app.png",
-      github: "https://github.com/abhisheknair0925-beep",
+      github: "https://github.com/abhisheknair0925-beep/expense-tracker-app",
     },
     {
       title: "E-Goal V2 Android App",
       description: "Production Android client with REST API integration, role-based access control, response caching, and offline sync capabilities.",
       tech: ["Java", "Retrofit", "Material UI", "Android"],
       image: "/expense-app.png",
-      github: "https://github.com/abhisheknair0925-beep",
     },
     {
       title: "Secure Online Banking System",
       description: "Secure banking backend implementing JWT-based authentication, strict input validation, and AES data encryption for sensitive transactions.",
       tech: ["Java", "Spring Boot", "Security"],
       image: "/architecture.png",
-      github: "https://github.com/abhisheknair0925-beep",
     },
     {
       title: "Token Management System",
       description: "Client-server hospital queue management system, significantly reducing patient wait time through digital token allocation.",
       tech: ["PHP", "MySQL", "Android"],
       image: "/architecture.png",
-      github: "https://github.com/abhisheknair0925-beep",
+      github: "https://github.com/abhisheknair0925-beep/Gmcc_hospital_Token_App",
+    },
+    {
+      title: "LIBRARY E-GATE",
+      description: "An automated e-gate library management system to track and manage student entry, book issuing, and inventory in real time.",
+      tech: ["Python", "OpenCV", "RFID", "MySQL"],
+      image: "/architecture.png",
+      github: "https://github.com/abhisheknair0925-beep/LIBRARY_E-GATE",
     },
   ],
   achievements: [
@@ -148,6 +152,7 @@ export const PORTFOLIO_DATA = {
       title: "IEEE Publication",
       description: "Co-authored and published a research paper in an IEEE conference on advanced software engineering methodologies.",
       icon: <LayoutTemplate className="w-6 h-6 text-indigo-400" />,
+      link: "https://ieeexplore.ieee.org/document/10306474",
     },
     {
       title: "Kerala Police Recognition",

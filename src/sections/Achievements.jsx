@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 import { PORTFOLIO_DATA } from "../utils/data";
 
 const Achievements = () => {
@@ -32,9 +33,14 @@ const Achievements = () => {
                 {achievement.icon}
               </div>
               <h3 className="text-xl font-bold text-slate-100 mb-3">{achievement.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 {achievement.description}
               </p>
+              {achievement.link && (
+                <a href={achievement.link} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">
+                  View Publication <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
