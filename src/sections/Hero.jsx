@@ -70,7 +70,7 @@ const Hero = () => {
             </motion.a>
             
             <motion.a 
-              href="/resume.pdf" 
+              href="/Abhishek_A_Nair_Resume.pdf" 
               download 
               variants={buttonGlow}
               initial="rest"
